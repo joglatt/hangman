@@ -7,9 +7,12 @@ var correctGuesses = [];
 var remainingGuesses = 7;
 function setWord(){
   currentWord = words[Math.floor(Math.random() * words.length)];
+  for ( i = 0; i < currentWord.length; i++){
+    *-[i]="_";+
+    
+  };
 };
 function reset(){
-  // Must add win mechanic. If hiddenword = currentword?
   if (remainingGuesses === 0){
     alert("You lose. Within the dark construct of Hangman, that means you are dead.");
     remainingGuesses = 7;
@@ -18,7 +21,7 @@ function reset(){
     correctGuesses=[];
     lettersUsed=[];
   }else if(currentWord==hiddenWord){
-    alert("You won; count your blessings.")
+    alert("You won. Count your blessings.")
     remainingGuesses = 7;
     wins++;
     setWord();
@@ -26,7 +29,10 @@ function reset(){
     lettersUsed=[];
   }
 }
+
 setWord();
+
+
 document.onkeyup = function(event) {
   var guess = event.key;
   
@@ -41,15 +47,18 @@ document.onkeyup = function(event) {
       lettersUsed.push(guess);
       remainingGuesses--;
     } else if (currentWord.includes(guess) === true) {
-      for (i = 0; i < currentWord.length; i++){
-        
-      }
+      console.log("correct");
+      hiddenWord.splice(currentWord.indexOf(guess), 1, guess);
+      // How would I fill in a letter if it appears in the word twice?
       correctGuesses.push(guess);
+      hiddenWord.join(" ");
+      
+      }
+      
     }
-  }
+  
   reset()
-}
-
+  
   var html =
   "<p>tester: " +
   currentWord +
@@ -69,3 +78,5 @@ document.onkeyup = function(event) {
 
 document.querySelector("#game").innerHTML = html;
 };
+
+}
