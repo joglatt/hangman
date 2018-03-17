@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hangman</title>
@@ -12,12 +13,18 @@
     <h1>Hangman</h1>
     <div id="container">
         <h2>Type a letter to begin guessing.</h2>
+        <audio id="myAudio">
+            <source src="assets/eog.mp3" type="audio/mp3">
+     </audio>
+
+        <button onclick="playAudio()" type="button">Play Audio</button>
+        <button onclick="pauseAudio()" type="button">Pause Audio</button>
         <div id="game"></div>
 
-            </h2>
+        </h2>
 
 
-        </div>
+    </div>
 
     </div>
 
