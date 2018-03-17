@@ -10,19 +10,30 @@
 </head>
 
 <body>
-    <h1>Hangman</h1>
-    <div id="container">
-        <h2>Type a letter to begin guessing.</h2>
-        <audio id="myAudio">
-            <source src="assets/eog.mp3" type="audio/mp3">
-     </audio>
+    <audio id="myAudio">
+        <source src="assets/eog.mp3" type="audio/mp3">
+    </audio>
+    <div class="jumbotron text-center">
+        <h1>Hangman</h1>
 
-        <button onclick="playAudio()" type="button">Play Audio</button>
-        <button onclick="pauseAudio()" type="button">Pause Audio</button>
-        <div id="game"></div>
+       
+    </div>
+    <div class="container b">
 
-        </h2>
+        <div class="row text-center">
+            <div class="col-md-6 border">
 
+                <h1>Game space</h1>
+                <div id="deadman"></div>
+            </div>
+            <div class="col-md-6 border border border-dark">
+                <h2>Type a letter to begin guessing.</h2>
+                <button onclick="playAudio()" type="button">Soundtrack of impending doom</button>
+                <button onclick="pauseAudio()" type="button">Enough Already</button>
+                <div id="game"></div>
+            </div>
+            </h2>
+        </div>
 
     </div>
 
