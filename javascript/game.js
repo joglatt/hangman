@@ -1,12 +1,13 @@
 var music = document.getElementById("myAudio");
 var x = document.getElementById("myAudio");
-
+// plays musiv
 function playAudio() {
   x.play();
 }
-
+// doesn't pause music because I'm a bad person
 function pauseAudio() {
-  x.pause();
+  alert("Just kidding. You have no choice.")
+  // x.pause();
 }
 var wins = 0;
 var words = [
@@ -73,9 +74,6 @@ function printGame(
   lettersUsed
 ) {
   var html =
-    "<p>tester: " +
-    currentWord +
-    "</p>" +
     "<p>Wins: " +
     wins +
     "</p>" +
@@ -116,6 +114,7 @@ function reset() {
 }
 
 // Sets new word
+playAudio()
 setWord();
 //key up function for everything triggered on a guess
 document.onkeyup = function(event) {
