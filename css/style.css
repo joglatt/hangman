@@ -1,0 +1,23 @@
+body  {
+    background-image: url(../assets/background.jpg);
+ 
+}
+.jumbotron{
+    background-image: url(../assets/jumbo-background.jpg);
+ 
+}
+
+#deadman{
+    border: solid 3px black;
+}
+
+#gamespace{
+    border:solid 3px black;
+}
+
+
+.jumbotron h1{
+    
+    font-size:80px;
+}
+    
