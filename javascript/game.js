@@ -21,17 +21,40 @@ var words = [
   "frontier",
   "gallop",
   "gunslinger"
+  
 ];
 var currentWord = [];
 var hiddenWord = [];
 var lettersUsed = [];
 var correctGuesses = [];
 var remainingGuesses = 7;
+
+function image() {
+  if (remainingGuesses === 7) {
+    document.getElementById("deadman").src = "assets/0.jpg";
+  } else if (remainingGuesses === 6) {
+    document.getElementById("deadman").src = "assets/1.jpg";
+  } else if (remainingGuesses === 5) {
+    document.getElementById("deadman").src = "assets/2.jpg";
+  } else if (remainingGuesses === 4) {
+    document.getElementById("deadman").src = "assets/3.jpg";
+  } else if (remainingGuesses === 3) {
+    document.getElementById("deadman").src = "assets/4.jpg";
+  } else if (remainingGuesses === 2) {
+    document.getElementById("deadman").src = "assets/5.jpg";
+  } else if (remainingGuesses === 1) {
+    document.getElementById("deadman").src = "assets/6.jpg";
+  } else if (remainingGuesses === 0) {
+    document.getElementById("deadman").src = "assets/7.jpg";
+  }
+}
 // sets random word and creates array with blanks for hidden word.
 function setWord() {
   currentWord = words[Math.floor(Math.random() * words.length)];
   // Must clear because loop will not overwrite letters from a previous word longer than the new word
+  // The letters used were not clearing from previous game until first guess
   hiddenWord = [];
+  lettersUsed=[];
   for (i = 0; i < currentWord.length; i++) {
     //  loop over word to create hidden word
     hiddenWord[i] = "_";
@@ -78,6 +101,7 @@ function reset() {
     setWord();
     correctGuesses = [];
     lettersUsed = [];
+    document.getElementById("deadman").src = "assets/0.jpg";
   } else if (hiddenWord.join("") === currentWord) {
     alert(
       "You got lucky this time greenhorn. Why don't ya'll git while the gitting is good?"
@@ -87,8 +111,10 @@ function reset() {
     setWord();
     correctGuesses = [];
     lettersUsed = [];
+    document.getElementById("deadman").src = "assets/0.jpg";
   }
 }
+
 // Sets new word
 setWord();
 //key up function for everything triggered on a guess
@@ -107,6 +133,8 @@ document.onkeyup = function(event) {
         correctGuesses.push(guess);
         //updates game display
         printGame(currentWord, wins, hiddenWord, remainingGuesses, lettersUsed);
+        //changes pictue as guesses remaining drop
+        image();
         //checks to see if player won and if game restarts
         reset();
         //if it is not a correct guess, log incorrect, add the guess to the array of used words, deincrement remaining guesses,
@@ -116,6 +144,8 @@ document.onkeyup = function(event) {
         remainingGuesses--;
         //update game display, and check if the player lost
         printGame(currentWord, wins, hiddenWord, remainingGuesses, lettersUsed);
+        //changes pictue as guesses remaining drop
+        image();
         reset();
       }
     }
