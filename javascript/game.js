@@ -6,7 +6,7 @@ function playAudio() {
 }
 // doesn't pause music because I'm a bad person
 function pauseAudio() {
-  alert("Just kidding. You have no choice.")
+  alert("Just kidding. You have no choice.");
   // x.pause();
 }
 var wins = 0;
@@ -21,8 +21,14 @@ var words = [
   "cattle",
   "frontier",
   "gallop",
-  "gunslinger"
-  
+  "gunslinger",
+  "buckaroo",
+  "wrangler",
+  "cowboy",
+  "cowboy",
+  "stallion",
+  "rodeo",
+  "fisticuffs",
 ];
 var currentWord = [];
 var hiddenWord = [];
@@ -55,7 +61,7 @@ function setWord() {
   // Must clear because loop will not overwrite letters from a previous word longer than the new word
   // The letters used were not clearing from previous game until first guess
   hiddenWord = [];
-  lettersUsed=[];
+  lettersUsed = [];
   for (i = 0; i < currentWord.length; i++) {
     //  loop over word to create hidden word
     hiddenWord[i] = "_";
@@ -114,7 +120,7 @@ function reset() {
 }
 
 // Sets new word
-playAudio()
+playAudio();
 setWord();
 //key up function for everything triggered on a guess
 document.onkeyup = function(event) {
