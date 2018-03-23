@@ -121,6 +121,7 @@ function reset() {
 
 // Sets new word
 playAudio();
+//plays music
 setWord();
 //key up function for everything triggered on a guess
 document.onkeyup = function(event) {
@@ -141,7 +142,7 @@ document.onkeyup = function(event) {
         //changes pictue as guesses remaining drop
         image();
         //checks to see if player won and if game restarts
-        reset();
+        setTimeout(function(){reset()},500);
         //if it is not a correct guess, log incorrect, add the guess to the array of used words, deincrement remaining guesses,
       } else {
         console.log("incorrect");
@@ -151,7 +152,7 @@ document.onkeyup = function(event) {
         printGame(currentWord, wins, hiddenWord, remainingGuesses, lettersUsed);
         //changes pictue as guesses remaining drop
         image();
-        reset();
+        setTimeout(function(){reset()},500);
       }
     }
   }
